@@ -44,11 +44,11 @@ export default function Contacts() {
             </li>
             <li className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-3">
               <span className="text-neon-blue">Email:</span> 
-              <a href="mailto:contact@mrbstudio.com" className="text-white hover:text-neon-pink transition-colors font-bold text-xl md:text-2xl">contact@mrbstudio.com</a>
+              <a href="mailto:mrbstudio@bk.ru" className="text-white hover:text-neon-pink transition-colors font-bold text-xl md:text-2xl">mrbstudio@bk.ru</a>
             </li>
             <li className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-3">
               <span className="text-neon-blue">Телефон:</span>
-              <span className="text-white font-bold text-xl md:text-2xl">+7 (999) 123-45-67</span>
+              <span className="text-white font-bold text-xl md:text-2xl">+7(904)618-54-96</span>
             </li>
           </ul>
           <div className="mt-12 pt-8">
