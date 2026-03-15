@@ -14,7 +14,7 @@ const workflowSteps = [
     quote: "Мы не просто слушаем, мы слышим ваши потребности.",
     themeColor: "neon-blue",
     align: "left",
-    imageSrc: "/img/1.gif"
+    imageSrc: "/mrbstudio_site/img/1.gif"
   },
   {
     name: "02. Прототип",
@@ -23,7 +23,7 @@ const workflowSteps = [
     quote: "Удобство пользователя начинается с продуманной структуры.",
     themeColor: "neon-pink",
     align: "right",
-    imageSrc: "/img/2.gif"
+    imageSrc: "/mrbstudio_site/img/2.gif"
   },
   {
     name: "03. UI Дизайн",
@@ -32,7 +32,7 @@ const workflowSteps = [
     quote: "Дизайн — это не то, как это выглядит, а то, как это работает.",
     themeColor: "neon-green",
     align: "left",
-    imageSrc: "/img/3.gif"
+    imageSrc: "/mrbstudio_site/img/3.gif"
   },
   {
     name: "04. Кодинг",
@@ -41,7 +41,7 @@ const workflowSteps = [
     quote: "Качественный код — фундамент стабильного продукта.",
     themeColor: "neon-purple",
     align: "right",
-    imageSrc: "/img/4.gif"
+    imageSrc: "/mrbstudio_site/img/4.gif"
   },
   {
     name: "05. Тесты",
@@ -50,7 +50,7 @@ const workflowSteps = [
     quote: "Совершенство в деталях.",
     themeColor: "neon-orange",
     align: "left",
-    imageSrc: "/img/5.gif"
+    imageSrc: "/mrbstudio_site/img/5.gif"
   },
   {
     name: "06. Релиз",
@@ -59,7 +59,7 @@ const workflowSteps = [
     quote: "Ваш успех — наша главная награда.",
     themeColor: "rockstar-yellow",
     align: "right",
-    imageSrc: "/img/6.gif"
+    imageSrc: "/mrbstudio_site/img/6.gif"
   }
 ];
 
