@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rockstar-yellow: #FDB827;
+  --color-rockstar-black: #000000;
+  --color-rockstar-gray: #1A1A1A;
+  --color-neon-pink: #FF00FF;
+  --color-neon-blue: #00FFFF;
+  --color-neon-green: #00FF00; /* Added missing green */
+  --color-neon-red: #FF0000;   /* Added missing red */
+  --color-neon-orange: #FFA500; /* Added missing orange */
+  --color-neon-purple: #800080; /* Added missing purple */
+
+  --font-sans: "Roboto", sans-serif;
+
+  --image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --image-gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+[data-nextjs-dev-tools-button] {
+  display: none !important;
+}
