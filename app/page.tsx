@@ -65,11 +65,11 @@ const workflowSteps = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white font-sans selection:bg-pink-500 selection:text-white">
+    <main className="min-h-screen bg-transparent text-white font-sans selection:bg-pink-500 selection:text-white">
       <Header />
       <Hero />
       
-      <div className="relative z-10 bg-gradient-to-b from-black via-gray-900 to-black pb-20">
+      <div className="relative z-10 pb-20">
         <div className="max-w-7xl mx-auto space-y-24 pt-20">
           {workflowSteps.map((step, index) => (
             <Fragment key={index}>

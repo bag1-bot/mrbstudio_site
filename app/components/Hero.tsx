@@ -3,8 +3,6 @@
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-import WaterText from './WaterText';
-
 const Hero = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
@@ -12,12 +10,7 @@ const Hero = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-black">
-      {/* 3D Water Background */}
-      <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
-        <WaterText />
-      </motion.div>
-
+    <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-transparent">
       <motion.div style={{ y: y2, opacity }} className="relative z-10 text-center w-full px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mt-0">
         <motion.h1 
           initial={{ scale: 0.8, opacity: 0, backgroundPosition: "0% 50%" }}
