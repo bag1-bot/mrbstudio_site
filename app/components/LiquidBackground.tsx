@@ -191,10 +191,10 @@ const fragmentShader = `
 
 export default function LiquidBackground() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const requestRef = useRef<number>();
-    const rendererRef = useRef<THREE.WebGLRenderer>();
+    const requestRef = useRef<number | null>(null);
+    const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
     const uniformsRef = useRef<any>(null);
-    const clockRef = useRef<THREE.Clock>();
+    const clockRef = useRef<THREE.Clock | null>(null);
 
     useEffect(() => {
         if (!containerRef.current) return;
