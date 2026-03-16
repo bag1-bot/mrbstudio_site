@@ -11,6 +11,9 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: 'MRB STUDIO - Разработка IT решений',
   description: 'Разработка Telegram ботов, сайтов и приложений.',
+  icons: {
+    icon: '/logo.png',
+  },
 }
 
 export default function RootLayout({
