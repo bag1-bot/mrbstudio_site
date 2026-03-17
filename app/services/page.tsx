@@ -91,7 +91,7 @@ export default function Services() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white font-sans selection:bg-neon-pink selection:text-white pt-20 relative overflow-hidden">
+    <main className="min-h-screen bg-transparent text-white font-sans selection:bg-neon-pink selection:text-white pt-20 relative overflow-hidden">
       <Header />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
         <motion.div 
@@ -157,7 +157,7 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-black relative z-10 rounded-3xl p-8 md:p-10 h-full"
+                  className="bg-black/70 relative z-10 rounded-3xl p-8 md:p-10 h-full"
                 >
                   {/* Gradient Glow Background inside card */}
                   <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${service.gradient} opacity-10 rounded-full blur-3xl -mr-20 -mt-20 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none`} />

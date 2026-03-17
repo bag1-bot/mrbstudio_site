@@ -45,7 +45,7 @@ export default function About() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white font-sans selection:bg-neon-pink selection:text-white pt-20">
+    <main className="min-h-screen bg-transparent text-white font-sans selection:bg-neon-pink selection:text-white pt-20">
       <Header />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-32">
@@ -122,7 +122,7 @@ export default function About() {
                 
                 {/* Inner Content Card */}
                 <motion.div 
-                  className="bg-black rounded-3xl p-8 md:p-12 text-left relative z-10 h-full"
+                  className="bg-black/70 rounded-3xl p-8 md:p-12 text-left relative z-10 h-full"
                   whileHover={{ scale: 1.005 }}
                   transition={{ duration: 0.3 }}
                 >

@@ -57,7 +57,7 @@ export default function Cases() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white font-sans selection:bg-neon-pink selection:text-white pt-20 relative overflow-hidden">
+    <main className="min-h-screen bg-transparent text-white font-sans selection:bg-neon-pink selection:text-white pt-20 relative overflow-hidden">
       <Header />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
         <motion.div 
@@ -83,11 +83,12 @@ export default function Cases() {
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cases.map((c, index) => (
             <motion.div 
-              key={index} 
+              key={c.title} 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-gray-900/50 p-6 rounded-lg border border-white/10 hover:border-neon-green transition-colors backdrop-blur-sm flex flex-col h-full"
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
+              className="bg-black/55 p-6 rounded-lg border border-white/10 hover:border-neon-green transition-colors flex flex-col h-full"
             >
               <h3 className="text-xl font-bold mb-1 text-neon-pink">{c.title}</h3>
               <p className="text-sm text-gray-500 mb-4 uppercase tracking-wider font-bold">{c.client}</p>

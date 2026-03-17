@@ -3,12 +3,20 @@ import Link from 'next/link';
 
 const Footer = () => {
     return (
-        <footer className="bg-black py-12 border-t border-white/10 relative z-50">
+        <footer className="bg-black/80 py-16 border-t border-white/10 relative z-50">
             <div className="max-w-7xl mx-auto px-4 text-center">
-                <div className="flex justify-center items-center space-x-4 mb-8">
-                    <span className="h-px w-12 bg-white/20"></span>
-                    <div className="text-3xl font-bold text-white tracking-tighter">MRB</div>
-                    <span className="h-px w-12 bg-white/20"></span>
+                <div className="flex flex-col items-center gap-6 mb-10">
+                    <div className="flex justify-center items-center space-x-4">
+                        <span className="h-px w-12 bg-white/20" />
+                        <div className="text-3xl font-black tracking-tighter neon-gradient-text neon-gradient-animate drop-shadow-[0_0_18px_rgba(255,0,255,0.35)]">
+                            MRB
+                        </div>
+                        <span className="h-px w-12 bg-white/20" />
+                    </div>
+
+                    <div className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none neon-gradient-text neon-gradient-animate drop-shadow-[0_0_28px_rgba(0,255,255,0.25)]">
+                        MRB STUDIO
+                    </div>
                 </div>
 
                 <div className="flex flex-col items-center gap-2 mb-8 text-gray-400 text-sm">

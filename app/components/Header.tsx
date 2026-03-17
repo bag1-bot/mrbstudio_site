@@ -21,7 +21,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 mr-12 group">
-              <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-neon-pink to-neon-blue tracking-tighter group-hover:opacity-80 transition-opacity">
+              <span className="text-3xl font-black neon-gradient-text neon-gradient-animate tracking-tighter group-hover:opacity-80 transition-opacity">
                 MRB
               </span>
             </Link>

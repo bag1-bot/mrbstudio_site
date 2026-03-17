@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export default function Contacts() {
   return (
-    <main className="min-h-screen bg-black text-white font-sans selection:bg-neon-pink selection:text-white pt-20">
+    <main className="min-h-screen bg-transparent text-white font-sans selection:bg-neon-pink selection:text-white pt-20">
       <Header />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden">
         
@@ -34,7 +34,7 @@ export default function Contacts() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="relative z-10 space-y-6 text-base md:text-lg text-gray-300 max-w-2xl mx-auto text-center bg-black/50 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10"
+          className="relative z-10 space-y-6 text-base md:text-lg text-gray-300 max-w-2xl mx-auto text-center bg-black/65 p-6 md:p-8 rounded-2xl border border-white/10"
         >
           <p className="text-lg md:text-xl">Свяжитесь с нами для обсуждения вашего проекта:</p>
           <ul className="space-y-4">

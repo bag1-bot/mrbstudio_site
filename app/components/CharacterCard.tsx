@@ -48,7 +48,7 @@ const CharacterCard = ({ name, tagline, description, quote, align = 'left', them
           "{tagline}"
         </p>
 
-        <div className="bg-black/40 backdrop-blur-sm p-6 rounded-lg border border-white/10 shadow-2xl">
+        <div className="bg-black/65 p-6 rounded-lg border border-white/10 shadow-2xl">
           <p className="text-base md:text-xl text-gray-300 leading-relaxed font-light">
             {description}
           </p>
