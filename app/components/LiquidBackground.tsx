@@ -199,9 +199,13 @@ export default function LiquidBackground() {
     useEffect(() => {
         if (!containerRef.current) return;
 
+        const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
+        if (prefersReducedMotion) return;
+
         // --- PARAMS (User Defaults from script.js) ---
         const params = {
-            resolution: 0.5,
+            // Render scale; combined with devicePixelRatio cap below
+            resolution: 0.4,
             octaves: 4,
             speed: 0.18,
             scale: 0.05,
@@ -217,18 +221,25 @@ export default function LiquidBackground() {
             color5: '#cce9ff',
         };
 
+        const targetFps = 30;
+        const frameIntervalMs = 1000 / targetFps;
+        let lastFrameTs = 0;
+        let running = true;
+
         // --- THREE.JS SETUP ---
         const scene = new THREE.Scene();
         const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
         camera.position.z = 1;
 
         const renderer = new THREE.WebGLRenderer({ 
-            antialias: true, 
+            antialias: false, 
             alpha: true, 
-            powerPreference: "high-performance" 
+            powerPreference: "high-performance",
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(params.resolution);
+        // Cap DPR to avoid melting GPUs on high-DPI screens
+        const cappedDpr = Math.min(window.devicePixelRatio || 1, 1.25);
+        renderer.setPixelRatio(cappedDpr * params.resolution);
         containerRef.current.appendChild(renderer.domElement);
         rendererRef.current = renderer;
 
@@ -267,30 +278,49 @@ export default function LiquidBackground() {
         const clock = new THREE.Clock();
         clockRef.current = clock;
 
-        const animate = () => {
+        const animate = (ts: number) => {
+            if (!running) return;
+            requestRef.current = requestAnimationFrame(animate);
+            if (ts - lastFrameTs < frameIntervalMs) return;
+            lastFrameTs = ts;
+
             if (uniformsRef.current && clockRef.current) {
                 uniformsRef.current.u_time.value = clockRef.current.getElapsedTime();
             }
-            if (rendererRef.current) {
-                rendererRef.current.render(scene, camera);
-            }
-            requestRef.current = requestAnimationFrame(animate);
+            renderer.render(scene, camera);
         };
-        animate();
+        requestRef.current = requestAnimationFrame(animate);
 
         // --- RESIZE HANDLER ---
         const handleResize = () => {
             if (rendererRef.current && uniformsRef.current) {
                 rendererRef.current.setSize(window.innerWidth, window.innerHeight);
                 uniformsRef.current.u_resolution.value.set(window.innerWidth, window.innerHeight);
+                const nextCappedDpr = Math.min(window.devicePixelRatio || 1, 1.25);
+                rendererRef.current.setPixelRatio(nextCappedDpr * params.resolution);
             }
         };
         window.addEventListener('resize', handleResize);
 
+        const handleVisibility = () => {
+            if (document.hidden) {
+                running = false;
+                if (requestRef.current) cancelAnimationFrame(requestRef.current);
+                requestRef.current = null;
+            } else if (!running) {
+                running = true;
+                lastFrameTs = 0;
+                requestRef.current = requestAnimationFrame(animate);
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisibility);
+
         return () => {
+            running = false;
             if (requestRef.current) {
                 cancelAnimationFrame(requestRef.current);
             }
+            document.removeEventListener('visibilitychange', handleVisibility);
             window.removeEventListener('resize', handleResize);
             if (containerRef.current && rendererRef.current) {
                 containerRef.current.removeChild(rendererRef.current.domElement);

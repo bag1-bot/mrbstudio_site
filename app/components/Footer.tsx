@@ -24,6 +24,17 @@ const Footer = () => {
                      <a href="mailto:mrbstudio@bk.ru" className="hover:text-neon-pink transition-colors">mrbstudio@bk.ru</a>
                 </div>
 
+                <div className="mb-10">
+                    <a
+                        href="https://t.me/mrb_studio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center px-10 py-4 rounded-full font-black uppercase tracking-widest text-sm md:text-base border border-neon-green text-neon-green hover:bg-neon-green hover:text-black transition-all shadow-[0_0_25px_rgba(0,255,0,0.18)] hover:shadow-[0_0_45px_rgba(0,255,0,0.35)]"
+                    >
+                        Оставить заявку
+                    </a>
+                </div>
+
                 <p className="text-gray-500 text-xs mb-4">
                     MRB STUDIO. Все права защищены.
                 </p>

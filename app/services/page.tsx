@@ -2,7 +2,7 @@
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { 
   SiPython, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiDocker, SiPostgresql, 
   SiMongodb, SiRedis, SiNginx, SiLinux, SiOpenai, SiFlutter, SiSwift, SiKotlin, 
@@ -10,6 +10,7 @@ import {
 } from 'react-icons/si';
 
 export default function Services() {
+  const shouldReduceMotion = useReducedMotion();
   const services = [
     { 
       title: 'Парсинг и автоматизация', 
@@ -120,35 +121,19 @@ export default function Services() {
               {/* Animated Border Container */}
               <div className="relative rounded-3xl p-[3px] overflow-hidden group">
                 {/* Moving Gradient Border - Glow Layer */}
-                <motion.div
-                  className="absolute inset-[-100%]"
+                <div
+                  className="absolute inset-[-100%] hidden md:block"
                   style={{
                     background: `conic-gradient(from 0deg, transparent 0%, ${service.tech[0]?.color || '#ff00ff'} 15%, transparent 30%, transparent 50%, ${service.tech[1]?.color || '#00ffff'} 65%, transparent 80%)`,
                     filter: 'blur(20px)',
                   }}
-                  animate={{
-                    rotate: 360
-                  }}
-                  transition={{
-                    duration: 4,
-                    ease: "linear",
-                    repeat: Infinity,
-                  }}
                 />
                 
                 {/* Moving Gradient Border - Sharp Layer */}
-                <motion.div
+                <div
                   className="absolute inset-[-100%]"
                   style={{
                     background: `conic-gradient(from 0deg, transparent 0%, ${service.tech[0]?.color || '#ff00ff'} 15%, transparent 30%, transparent 50%, ${service.tech[1]?.color || '#00ffff'} 65%, transparent 80%)`,
-                  }}
-                  animate={{
-                    rotate: 360
-                  }}
-                  transition={{
-                    duration: 4,
-                    ease: "linear",
-                    repeat: Infinity,
                   }}
                 />
 

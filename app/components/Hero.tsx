@@ -1,30 +1,21 @@
 "use client";
 
-import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const Hero = () => {
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-transparent">
-      <motion.div style={{ y: y2, opacity }} className="relative z-10 text-center w-full px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mt-0">
+      <motion.div className="relative z-10 text-center w-full px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mt-0">
         <motion.h1 
-          initial={{ scale: 0.8, opacity: 0, backgroundPosition: "0% 50%" }}
-          animate={{ 
-            scale: 1, 
-            opacity: 1,
-            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-          }}
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
           transition={{ 
             scale: { duration: 1, ease: "easeOut" },
             opacity: { duration: 1, ease: "easeOut" },
-            backgroundPosition: { duration: 5, repeat: Infinity, ease: "linear" }
           }}
-          className="text-5xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-neon-pink via-neon-purple via-neon-blue to-neon-pink bg-[length:200%_auto] drop-shadow-[0_0_30px_rgba(255,0,255,0.6)] w-full block text-center"
+          className="text-5xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter neon-gradient-text neon-gradient-animate drop-shadow-[0_0_30px_rgba(255,0,255,0.6)] w-full block text-center"
         >
           MRB STUDIO
         </motion.h1>
@@ -78,8 +69,8 @@ const Hero = () => {
       </motion.div>
 
       <motion.div 
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
+        animate={shouldReduceMotion ? undefined : { y: [0, 10, 0] }}
+        transition={shouldReduceMotion ? undefined : { repeat: Infinity, duration: 2 }}
         className="absolute bottom-10 left-0 right-0 text-center"
       >
         <span className="text-white/50 text-sm tracking-widest uppercase">Узнать о нас побольше</span>
