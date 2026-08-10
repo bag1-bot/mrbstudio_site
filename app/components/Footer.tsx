@@ -41,6 +41,7 @@ const Footer = () => {
                 
                 <div className="flex flex-wrap justify-center gap-4 text-[10px] text-gray-600 uppercase tracking-wider">
                     <Link href="/privacy-policy" className="hover:text-gray-400">Политика конфиденциальности</Link>
+                    <Link href="/apps/privacy-policy" className="hover:text-gray-400">Privacy Policy Apps</Link>
                     <Link href="/cookie-policy" className="hover:text-gray-400">Политика Cookie</Link>
                 </div>
             </div>
